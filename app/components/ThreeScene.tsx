@@ -5,9 +5,11 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Stars, MeshDistortMaterial } from "@react-three/drei";
 import * as THREE from "three";
 
+/** Sphère animée qui tourne sur elle-même à chaque frame grâce à useFrame. */
 function AnimatedSphere() {
   const meshRef = useRef<THREE.Mesh>(null);
 
+  // Fait pivoter la sphère en continu sur les axes X et Y en fonction du temps écoulé.
   useFrame(({ clock }) => {
     if (meshRef.current) {
       meshRef.current.rotation.x = clock.getElapsedTime() * 0.3;
@@ -29,9 +31,11 @@ function AnimatedSphere() {
   );
 }
 
+/** Trois anneaux orbitaux qui flottent et tournent lentement autour de la sphère. */
 function FloatingRings() {
   const groupRef = useRef<THREE.Group>(null);
 
+  // Applique une rotation sinusoïdale sur X et une rotation constante sur Y à chaque frame.
   useFrame(({ clock }) => {
     if (groupRef.current) {
       groupRef.current.rotation.x =
@@ -42,6 +46,7 @@ function FloatingRings() {
 
   return (
     <group ref={groupRef}>
+      {/* Génère trois tores concentriques avec des angles et des rayons différents. */}
       {[0, 1, 2].map((i) => (
         <mesh key={i} rotation={[(Math.PI / 3) * i, 0, (Math.PI / 6) * i]}>
           <torusGeometry args={[2.2 + i * 0.4, 0.04, 16, 100]} />
@@ -56,6 +61,7 @@ function FloatingRings() {
   );
 }
 
+/** Scène Three.js principale : canvas R3F avec lumières, étoiles, sphère et anneaux animés. */
 export default function ThreeScene() {
   return (
     <Canvas

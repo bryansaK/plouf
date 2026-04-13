@@ -37,13 +37,19 @@ const sections = [
   },
 ];
 
+/**
+ * Section défilante affichant les cartes de la pile technologique.
+ * Chaque carte est animée à l'entrée dans le viewport grâce à GSAP ScrollTrigger.
+ */
 export default function ScrollSections() {
   const containerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
+    // Crée un contexte GSAP lié au conteneur pour faciliter le nettoyage.
     const ctx = gsap.context(() => {
       cardsRef.current.forEach((card, i) => {
+        // Anime chaque carte depuis un état invisible/décalé vers son état visible.
         gsap.fromTo(
           card,
           { opacity: 0, y: 60, scale: 0.92 },
@@ -65,6 +71,7 @@ export default function ScrollSections() {
       });
     }, containerRef);
 
+    // Nettoie toutes les animations et ScrollTriggers lors du démontage du composant.
     return () => ctx.revert();
   }, []);
 

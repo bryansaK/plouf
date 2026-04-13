@@ -9,6 +9,10 @@ const ThreeScene = dynamic(() => import("./ThreeScene"), { ssr: false });
 
 import type { Variants } from "framer-motion";
 
+/**
+ * Variantes d'animation Framer Motion pour un effet d'apparition vers le haut.
+ * Le paramètre personnalisé `i` permet de décaler l'animation de chaque élément.
+ */
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
@@ -26,6 +30,11 @@ const badges = [
   { label: "React Three Fiber", bg: "bg-violet-600" },
 ];
 
+/**
+ * Composant principal de la page d'accueil.
+ * Assemble la scène 3D en arrière-plan, les animations d'entrée Framer Motion
+ * et la section défilante avec GSAP ScrollTrigger.
+ */
 export default function PageContent() {
   return (
     <div className="min-h-screen bg-[#050510] overflow-x-hidden">
