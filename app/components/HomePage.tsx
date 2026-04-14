@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Header from "@/app/components/Header";
 
 /**
@@ -11,22 +12,22 @@ import Header from "@/app/components/Header";
 export default function HomePage() {
   return (
     <div className="relative min-h-screen  overflow-x-hidden">
-      {/* Header sticky en haut de page */}
       <Header />
-
-      {/* Hero */}
       <section className="relative h-screen">
-        {/* Image AVIF en fond avec fade-in */}
         <motion.div
           className="absolute inset-0 -z-10 overflow-hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
         >
-          <img
+          <Image
             src="/divingPicture.avif"
             alt="Fond de plongée"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            quality={100}
+            className="object-cover"
           />
         </motion.div>
 
