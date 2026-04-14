@@ -52,7 +52,7 @@ export default function Home() {
     <div className="relative min-h-screen overflow-x-hidden">
       <Header />
       <section
-        className="relative h-screen flex items-center justify-center"
+        className="relative h-screen flex items-start justify-center"
         onWheel={handleWheel}
       >
         <AnimatePresence mode="wait">
@@ -76,7 +76,7 @@ export default function Home() {
           </motion.div>
         </AnimatePresence>
 
-        <HomePageCard className="" step={index} />
+        <HomePageCard className="md:mt-[13%] mt-[45%]" step={index} />
         {/* Scroll hint */}
         <ScrollHint />
       </section>

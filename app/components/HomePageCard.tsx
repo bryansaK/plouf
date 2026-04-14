@@ -11,22 +11,26 @@ export interface StepContent {
     subtitle: string;
     text: string;
     link?: string;
+    localisation?: string;
 }
 
 const sections: StepContent[] = [
     {
         subtitle: "1 - Près de chez vous",
         text: "Découvrez les clubs de plongée locaux, leurs offres et événements à venir.",
+        localisation: "France -  Cote d'Azur ",
         link: "#discover",
     },
     {
         subtitle: "2 - Matériel nécessaire",
         text: "Explorez notre guide complet du matériel de plongée pour débutants et experts.",
+        localisation: "France -  Plongée Subaquatique Bordeaux",
         link: "#explore",
     },
     {
         subtitle: "3 - Vous inscrire chez nos partenaires",
         text: "Rejoignez nos clubs partenaires et profitez d'avantages exclusifs.",
+        localisation: "France - Club de plongée de Marseille",
         link: "#signup",
     },
 ];
@@ -38,25 +42,41 @@ export const HomePageCard: React.FC<HomePageCardProps> = ({
 }) => {
     return (
         <div
-            className={` text-white h-[380px] overflow-y-auto animate-fade-in ${className}`}
-        >
-            <h2 className="md:mb-4 text-5xl font-semibold text-center md:text-left mt-5 text-cyan-200 ">
+            className={`text-white h-[500px] flex flex-col animate-fade-in ${className}`}
+        >   
+        <div className="text-center">
+            <p className="flex items-center justify-center gap-3 text-sm text-slate-100/90 leading-relaxed">
+                <span className="flex h-4 w-6 overflow-hidden rounded-[3px] shadow-sm">
+                    <span className="h-full w-1/3 bg-[#0055A4]" />
+                    <span className="h-full w-1/3 bg-white" />
+                    <span className="h-full w-1/3 bg-[#EF4135]" />
+                </span>
+                {sections[step || 0].localisation}
+            </p>
+            <h2 className="text-7xl font-semibold text-center md:text-left  ">
                 {title}
             </h2>
-            <div className=" mt-12 text-center bg-black/10 backdrop-blur-md rounded-lg p-6">
-                {sections[step || 0] && (
+            </div>
+            <div className=" flex   w-50 text-center  mx-auto mt-auto overflow-hidden text-xs font-medium uppercase tracking-[0.18em]">
+                <div className="flex-1 flex items-center justify-center text-white/80 hover:text-white/200 cursor-pointer transition-colors">
+                    Highlight
+                </div>
+                                <div className="flex-1 flex items-center justify-center text-white/80 hover:text-white/200 cursor-pointer transition-colors border-l  border-white/20">
+                    Découvrir
+                </div>
+                {/**sections[step || 0] && (
                     <section className="space-y-2">
                         <h3 className="text-lg font-medium">{sections[step || 0].subtitle}</h3>
                         <p className="text-sm text-slate-100/90 leading-relaxed">
                             {sections[step || 0].text}
                         </p>
-                        {sections[step || 0].link && (
+                       {/**  {sections[step || 0].link && (
                             <PremiumButton href={sections[step || 0].link} className="mt-4">
                                 En savoir plus
                             </PremiumButton>
-                        )}
+                        )} }
                     </section>
-                )}
+                ) */}
             </div>
         </div>
     );
