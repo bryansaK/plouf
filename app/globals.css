@@ -24,3 +24,14 @@ body {
 .animate-fade-in {
   animation: fade-in-up 0.8s ease-out forwards;
 }
+
+@keyframes title-glow {
+  0%, 100% {
+    text-shadow: 0 0 0px rgba(125, 211, 252, 0.0);
+    transform: translateY(0);
+  }
+  50% {
+    text-shadow: 0 0 16px rgba(125, 211, 252, 0.45);
+    transform: translateY(-2px);
+  }
+}
