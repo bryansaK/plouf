@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -7,6 +8,8 @@ export const metadata: Metadata = {
     "A modern stack demo: TypeScript, Tailwind CSS, Framer Motion, GSAP ScrollTrigger, and React Three Fiber",
 };
 
+const playfair = Playfair_Display({ subsets: ["latin"] });
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -14,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className={`${playfair.className} min-h-full flex flex-col`}>
+        {children}
+      </body>
     </html>
   );
 }
