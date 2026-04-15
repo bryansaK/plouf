@@ -43,25 +43,25 @@ export const HomePageCard: React.FC<HomePageCardProps> = ({
     return (
         <div
             className={`text-white h-[500px] flex flex-col animate-fade-in ${className}`}
-        >   
-        <div className="text-center">
-            <p className="flex items-center justify-center gap-3 text-sm text-slate-100/90 leading-relaxed">
-                <span className="flex h-4 w-6 overflow-hidden rounded-[3px] shadow-sm">
-                    <span className="h-full w-1/3 bg-[#0055A4]" />
-                    <span className="h-full w-1/3 bg-white" />
-                    <span className="h-full w-1/3 bg-[#EF4135]" />
-                </span>
-                {sections[step || 0].localisation}
-            </p>
-            <h2 className="text-7xl font-semibold text-center md:text-left  ">
-                {title}
-            </h2>
+        >
+            <div className="text-center">
+                <p className="flex items-center justify-center gap-3 text-sm text-slate-100/90 leading-relaxed">
+                    <span className="flex h-4 w-6 overflow-hidden rounded-[3px] shadow-sm">
+                        <span className="h-full w-1/3 bg-[#0055A4]" />
+                        <span className="h-full w-1/3 bg-white" />
+                        <span className="h-full w-1/3 bg-[#EF4135]" />
+                    </span>
+                    {sections[step || 0].localisation}
+                </p>
+                <h2 className="text-7xl font-semibold text-center">
+                    {title}
+                </h2>
             </div>
-            <div className=" flex   w-50 text-center  mx-auto mt-auto overflow-hidden text-xs font-medium uppercase tracking-[0.18em]">
-                <div className="flex-1 flex items-center justify-center text-white/80 hover:text-white/200 cursor-pointer transition-colors">
+            <div className="mt-auto mx-auto flex w-50  overflow-hidden text-xs font-medium uppercase tracking-[0.18em] text-center rounded-lg cursor-pointer">
+                <div className="flex w-50 items-center justify-center p-2 text-white/80 hover:text-white transition-colors">
                     Highlight
                 </div>
-                                <div className="flex-1 flex items-center justify-center text-white/80 hover:text-white/200 cursor-pointer transition-colors border-l  border-white/20">
+                <div className="flex w-50 items-center justify-center p-2 text-white/80 hover:text-white transition-colors border-l border-white/20">
                     Découvrir
                 </div>
                 {/**sections[step || 0] && (
